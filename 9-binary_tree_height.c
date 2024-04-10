@@ -4,8 +4,8 @@
  * binary_tree_height - Calculates the height of a binary tree
  * @tree: Pointer to the root node of the binary tree
  *
- * Return: Height of the binary tree, or 0 if
- * @tree is NULL or the tree is empty
+ * Return: Height of the binary tree, or 0 if @tree
+ * is NULL or the tree is empty
  *
  * This function calculates the height of a binary tree,
  * which is defined as the number of edges on the longest path
