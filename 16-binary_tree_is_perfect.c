@@ -2,6 +2,7 @@
 
 size_t binary_tree_height(const binary_tree_t *tree);
 size_t binary_tree_size(const binary_tree_t *tree);
+int _pow(int x, int y);
 
 /**
  * binary_tree_is_perfect - Checks if the left and right subtrees of a
@@ -22,7 +23,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	height = binary_tree_height(tree);
 	size = binary_tree_size(tree);
 
-	return (size == pow(2, height + 1) - 1);
+	return ((int)size == _pow(2, height + 1) - 1);
 }
 
 /**
@@ -70,4 +71,23 @@ size_t binary_tree_size(const binary_tree_t *tree)
 		return (0);
 
 	return (1 + binary_tree_size(tree->left) + binary_tree_size(tree->right));
+}
+
+/**
+ * _pow - Calculates the integer power of a base number.
+ * @x: The base number to be raised to a power.
+ * @y: The exponent (power) to which the base number is raised.
+ * A negative value results in an error return.
+ *
+ * Return: The result of raising the base number 'x' to the power of 'y'.
+ * If the exponent is negative, the function returns -1.
+ */
+
+int _pow(int x, int y)
+{
+	if (y < 0)
+		return (-1);
+	if (y == 0)
+		return (1);
+	return (x * _pow(x, y - 1));
 }
