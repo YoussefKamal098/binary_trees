@@ -9,8 +9,8 @@ size_t binary_tree_size(const binary_tree_t *tree);
  * @tree: A pointer to the constant binary tree node for which
  * to check subtree height equality.
  *
- * Return: An integer value indicating whether the left and right subtrees
- * have the same height (1) or not (0).
+ * Return: An integer value indicating whether the left
+ * and right subtrees have the same height (1) or not (0).
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
