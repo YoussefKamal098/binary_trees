@@ -3,7 +3,7 @@
 queue_t *create_queue();
 void enqueue(queue_t *queue, void *data);
 void *dequeue(queue_t *queue);
-int is_empty(queue_t *queue);
+bool is_empty(queue_t *queue);
 
 /**
  * binary_tree_levelorder -  Performs level order traversal of a binary tree.
@@ -141,10 +141,10 @@ void *dequeue(queue_t *queue)
  * Checks if the queue is empty by verifying if the head pointer is NULL.
  *
  * @queue: A pointer to the queue to be checked.
- * Return: 1 if the queue is empty, 0 otherwise.
+ * Return: true if the queue is empty, false otherwise.
  */
 
-int is_empty(queue_t *queue)
+bool is_empty(queue_t *queue)
 {
 	return (!queue->head);
 }
