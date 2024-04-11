@@ -16,11 +16,12 @@ int is_empty(queue_t *queue);
  */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
-	queue_t *queue = create_queue();
+	queue_t *queue;
 
 	if (!tree)
 		return;
 
+	queue = create_queue();
 	enqueue(queue, (void *)tree);
 
 	while (!is_empty(queue))
