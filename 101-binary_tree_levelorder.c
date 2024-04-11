@@ -35,6 +35,9 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 		if (front->right)
 			enqueue(queue, (void *)front->right);
 	}
+
+	queue->head = queue->tail = NULL;
+	free(queue);
 }
 
 /**
