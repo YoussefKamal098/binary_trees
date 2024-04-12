@@ -1,6 +1,6 @@
 #include "binary_trees.h"
 
-pair_t binary_tree_height_and_is_balance(const binary_tree_t *tree);
+int height_and_balance(const binary_tree_t *tree, bool *is_balanced);
 int binary_tree_is_bst(const binary_tree_t *tree);
 static int _binary_tree_is_bst(const binary_tree_t *tree, int min, int max);
 
@@ -17,62 +17,44 @@ static int _binary_tree_is_bst(const binary_tree_t *tree, int min, int max);
  */
 int binary_tree_is_avl(const binary_tree_t *tree)
 {
-	pair_t height_and_balance_pair;
 	bool is_balanced;
 
 	if (!tree)
 		return (0);
 
-	height_and_balance_pair = binary_tree_height_and_is_balance(tree);
-
-	is_balanced = *(bool *)height_and_balance_pair.second;
-
-	free(height_and_balance_pair.first);
-	free(height_and_balance_pair.second);
+	is_balanced = true;
+	height_and_balance(tree, &is_balanced);
 
 	return (is_balanced && binary_tree_is_bst(tree));
 }
 
 /**
- * binary_tree_height_and_is_balance - Calculates the height and balance
- * factor of a binary tree recursively.
+ * height_and_balance - Helper function to calculate the height and
+ * balance factor of a binary tree.
  *
- * This function calculates the height and balance factor of
- * each node in the binary tree recursively. It returns a pair containing
- * the height of the tree and a boolean indicating
- * whether the tree is balanced according to AVL tree properties.
+ * Recursively calculates the height and balance factor of each node in
+ * the binary tree. Updates the boolean variable 'is_balanced'
+ * to indicate whether the tree is balanced.
  *
  * @tree: A pointer to the root node of the binary tree.
- * Return: A pair containing the height of the tree and
- * a boolean indicating its balance.
+ * @is_balanced: A pointer to a boolean variable
+ * indicating whether the tree is balanced.
+ * Return: The height of the binary tree.
  */
-pair_t binary_tree_height_and_is_balance(const binary_tree_t *tree)
+int height_and_balance(const binary_tree_t *tree, bool *is_balanced)
 {
-	pair_t left, right;
-	int *height = (int *)malloc(sizeof(int)), balance_factor;
-	bool *is_balanced = (bool *)malloc(sizeof(bool));
-
-	*height = 0;
-	*is_balanced = true;
+	int left_height, right_height;
 
 	if (!tree)
-		return ((pair_t){height, is_balanced});
+		return (-1);
 
-	left = binary_tree_height_and_is_balance(tree->left);
-	right = binary_tree_height_and_is_balance(tree->right);
+	left_height = height_and_balance(tree->left, is_balanced);
+	right_height = height_and_balance(tree->right, is_balanced);
 
-	balance_factor = *(int *)left.first - *(int *)right.first;
-	*height = max(*(int *)left.first, *(int *)right.first) + 1;
+	if (abs(left_height - right_height) > 1)
+		*is_balanced = false;
 
-	*is_balanced = abs(balance_factor) <= 1 &&
-		       *(bool *)left.second && *(bool *)right.second;
-
-	free(left.first);
-	free(left.second);
-	free(right.first);
-	free(right.second);
-
-	return ((pair_t){height, is_balanced});
+	return (max(left_height, right_height) + 1);
 }
 
 /**

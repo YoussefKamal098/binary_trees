@@ -27,22 +27,6 @@ struct binary_tree_s
 };
 
 /**
- * struct pair_s - Represents a pair of elements,
- * each stored as a void pointer.
- *
- * @first: Pointer to the first element of the pair.
- * @second: Pointer to the second element of the pair.
- * This structure allows for the storage of pairs of elements of any data type,
- * as each element is stored as a void pointer.
- */
-typedef struct pair_s
-{
-	void *first;
-	void *second;
-
-} pair_t;
-
-/**
  * struct linked_list_node_s -  Structure representing a node in a linked list.
  *
  * @data: Pointer to the data stored in the node.
