@@ -6,6 +6,9 @@
 #include <string.h>
 #include <stdbool.h>
 #include <limits.h>
+#include <math.h>
+
+#define max(a, b) ((a > b) ? a : b)
 
 /**
  * struct binary_tree_s - Binary tree node
@@ -22,6 +25,22 @@ struct binary_tree_s
 	struct binary_tree_s *left;
 	struct binary_tree_s *right;
 };
+
+/**
+ * struct pair_s - Represents a pair of elements,
+ * each stored as a void pointer.
+ *
+ * @first: Pointer to the first element of the pair.
+ * @second: Pointer to the second element of the pair.
+ * This structure allows for the storage of pairs of elements of any data type,
+ * as each element is stored as a void pointer.
+ */
+typedef struct pair_s
+{
+	void *first;
+	void *second;
+
+} pair_t;
 
 /**
  * struct linked_list_node_s -  Structure representing a node in a linked list.
@@ -85,5 +104,6 @@ bst_t *bst_insert(bst_t **tree, int value);
 bst_t *array_to_bst(int *array, size_t size);
 bst_t *bst_search(const bst_t *tree, int value);
 bst_t *bst_remove(bst_t *root, int value);
+int binary_tree_is_avl(const binary_tree_t *tree);
 
 #endif /* _BINARY_TREES_H_ */
