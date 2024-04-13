@@ -30,10 +30,9 @@ int heap_extract(heap_t **root)
 	if (!new_root->parent)
 	{
 		root_value = (*root)->n;
-
 		free(*root);
-		*root = NULL;
 
+		*root = NULL;
 		return (root_value);
 	}
 
@@ -43,8 +42,13 @@ int heap_extract(heap_t **root)
 		new_root->parent->right = NULL;
 
 	new_root->parent = NULL;
-	new_root->left = (*root)->left;
-	new_root->right = (*root)->right;
+	new_root->left = (*root)->left != new_root ? (*root)->left : NULL;
+	new_root->right = (*root)->right != new_root ? (*root)->right : NULL;
+
+	if (new_root->left)
+		new_root->left->parent = new_root;
+	if (new_root->right)
+		new_root->right->parent = new_root;
 
 	root_value = (*root)->n;
 	(*root)->left = (*root)->right = NULL;
