@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
 static heap_t *get_last_level_node(heap_t *root);
-static heap_t *maxify(heap_t *tree);
+static heap_t *_maxify(heap_t *tree);
 
 /**
  * heap_extract - Extracts the root value of a max heap binary tree
@@ -38,7 +38,7 @@ int heap_extract(heap_t **root)
 	(*root)->left = (*root)->right = NULL;
 
 	free(*root);
-	*root = maxify(new_root);
+	*root = _maxify(new_root);
 
 	return (root_value);
 }
@@ -96,7 +96,7 @@ static heap_t *get_last_level_node(heap_t *root)
 }
 
 /**
- * maxify - Restores the max heap property in a max heap binary tree
+ * _maxify - Restores the max heap property in a max heap binary tree
  * @tree: Pointer to the root node of the max heap binary tree
  *
  * This function restores the max heap property in a max heap binary tree
@@ -107,7 +107,7 @@ static heap_t *get_last_level_node(heap_t *root)
  *
  * Return: Pointer to the node with the largest value in the subtree
  */
-static heap_t *maxify(heap_t *tree)
+static heap_t *_maxify(heap_t *tree)
 {
 	heap_t *largest;
 
@@ -129,6 +129,6 @@ static heap_t *maxify(heap_t *tree)
 	else
 		swap_with_right_child(tree);
 
-	maxify(tree);
+	_maxify(tree);
 	return (largest);
 }
