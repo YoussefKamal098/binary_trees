@@ -128,9 +128,9 @@ static heap_t *maxify(heap_t *tree)
 
 	largest = tree;
 
-	if (tree->left && tree->left->n > largest->n)
+	if (tree->left && tree->left->n >= largest->n)
 		largest = tree->left;
-	if (tree->right && tree->right->n > largest->n)
+	if (tree->right && tree->right->n >= largest->n)
 		largest = tree->right;
 
 	if (largest == tree)
