@@ -134,3 +134,117 @@ static heap_t *maxify(heap_t *tree)
 	maxify(tree);
 	return (largest);
 }
+
+/**
+ * swap_with_left_child - Swaps a node with its left child in the heap
+ * @parent: Pointer to the parent node
+ *
+ * This function swaps the given parent node with its left child in the heap.
+ * It updates the parent-child relationships accordingly and maintains
+ * the heap structure after the swap.
+ */
+void swap_with_left_child(binary_tree_t *parent)
+{
+	binary_tree_t *left_right_child, *left_child;
+
+	if (!parent || !parent->left)
+		return;
+
+	left_child = parent->left;
+
+	left_right_child = left_child->right;
+	left_child->right = parent->right;
+
+	if (left_child->right)
+		left_child->right->parent = left_child;
+
+	parent->right = left_right_child;
+
+	if (parent->right)
+		parent->right->parent = parent;
+
+	parent->left = left_child->left;
+
+	if (parent->left)
+		parent->left->parent = parent;
+
+	left_child->left = parent;
+
+	left_child->parent = parent->parent;
+	parent->parent = left_child;
+
+	if (!left_child->parent)
+		return;
+
+	if (left_child->parent->left == parent)
+		left_child->parent->left = left_child;
+	else
+		left_child->parent->right = left_child;
+}
+
+/**
+ * swap_with_right_child - Swaps a node with its right child in the heap
+ * @parent: Pointer to the parent node
+ *
+ * This function swaps the given parent node with its right child in the heap.
+ * It updates the parent-child relationships accordingly and maintains
+ * the heap structure after the swap.
+ */
+void swap_with_right_child(binary_tree_t *parent)
+{
+	binary_tree_t *right_child, *right_left_child;
+
+	if (!parent || !parent->right)
+		return;
+
+	right_child = parent->right;
+
+	right_left_child = right_child->left;
+	right_child->left = parent->left;
+
+	if (right_child->left)
+		right_child->left->parent = right_child;
+
+	parent->left = right_left_child;
+
+	if (parent->left)
+		parent->left->parent = parent;
+
+	parent->right = right_child->right;
+
+	if (parent->right)
+		parent->right->parent = parent;
+
+	right_child->right = parent;
+
+	right_child->parent = parent->parent;
+	parent->parent = right_child;
+
+	if (!right_child->parent)
+		return;
+
+	if (right_child->parent->left == parent)
+		right_child->parent->left = right_child;
+	else
+		right_child->parent->right = right_child;
+}
+
+/**
+ * binary_tree_size - Calculates the size of a binary tree
+ * @tree: Pointer to the root node of the binary tree
+ *
+ * Return: Size of the binary tree, or 0 if @tree is NULL
+ *
+ * This function calculates the size of a binary tree, which is defined as the
+ * total number of nodes in the tree. If the tree is empty or
+ * the root node is NULL, the size is considered to be 0. Otherwise,
+ * the size is calculated recursively by counting the nodes in the left
+ * and right subtrees and adding 1 for the current node.
+ */
+size_t binary_tree_size(const binary_tree_t *tree)
+{
+	if (!tree)
+		return (0);
+
+	return (1 + binary_tree_size(tree->left) + binary_tree_size(tree->right));
+}
