@@ -98,8 +98,4 @@ int binary_tree_is_heap(const binary_tree_t *tree);
 heap_t *array_to_heap(int *array, size_t size);
 int heap_extract(heap_t **root);
 
-/* heap_insert.c */
-void swap_with_left_child(binary_tree_t *parent);
-void swap_with_right_child(binary_tree_t *parent);
-
 #endif /* _BINARY_TREES_H_ */
