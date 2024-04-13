@@ -16,19 +16,20 @@
  */
 int *heap_to_sorted_array(heap_t *heap, size_t *size)
 {
-	int i, *array = NULL;
+	int i, *a = NULL;
 
 	if (!heap || !size)
 		return (NULL);
 
-	*size = binary_tree_size(heap) + 1;
+	*size = tree_size(heap);
 
-	array = malloc(sizeof(int) * (*size));
-	if (!array)
+	a = malloc(sizeof(int) * (*size));
+
+	if (!a)
 		return (NULL);
 
 	for (i = 0; heap; i++)
-		array[i] = heap_extract(&heap);
+		a[i] = heap_extract(&heap);
 
-	return (array);
+	return (a);
 }
