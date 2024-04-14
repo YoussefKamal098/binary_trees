@@ -35,7 +35,7 @@
 - [Conclusion](#conclusion)
 - [Known Bugs](#known-bugs)
 - [Show your support](#show-your-support)
-	- [Authors ©](#authors-)
+- [Authors ©](#authors-)
 
 ## Binary Trees (General)
 ### Overview
@@ -128,7 +128,7 @@ A binary search tree is a special type of binary tree in which the value of each
 ## AVL Trees
 
 ### Overview
-AVL trees are self-balancing binary search trees in which the heights of the two child subtrees of any node differ by at most one. This balancing property ensures that the height of the tree remains logarithmic, leading to efficient search, insertion, and deletion operations.
+AVL trees are **self-balancing** binary search trees in which the heights of the two child subtrees of any node differ by at most one. This balancing property ensures that the height of the tree remains logarithmic, leading to efficient search, insertion, and deletion operations.
 
 ### Key features
 - `Balancing Factor:` The difference in height between the left and right subtrees of a node is called the balancing factor. AVL trees use rotation operations to rebalance the tree when necessary to maintain the balancing factor.
@@ -212,7 +212,7 @@ AVL trees are self-balancing binary search trees in which the heights of the two
 ## Heap Trees (Max-heap - Min-heap)
 
 ### Overview
-Heap trees are complete binary trees that satisfy the heap property. In a max heap, every parent node has a value greater than or equal to the values of its children. In a min heap, every parent node has a value less than or equal to the values of its children.
+Heap trees are **complete binary trees** that satisfy the heap property. In a max heap, every parent node has a value greater than or equal to the values of its children. In a min heap, every parent node has a value less than or equal to the values of its children.
 
 ### Key features
 - `Heap Property:` The max heap property states that every parent node must have a value greater than or equal to the values of its children. The min heap property is the opposite, with every parent node having a value less than or equal to the values of its children.
@@ -284,6 +284,6 @@ Currently no known bugs. 🤝 Feel free to check the [issues page](../../issues/
 
 Give me a ⭐️ if you like this repo!
 
-### Authors &copy;
+## Authors &copy;
 
 - Youssef Samuel Kamal - [YoussefKamal098](https://github.com/YoussefKamal098)
