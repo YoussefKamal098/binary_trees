@@ -9,8 +9,8 @@
 	- [Overview](#overview-1)
 	- [Key features](#key-features)
 	- [Time Complexity](#time-complexity)
-	- [Binary Search Tree (BST) Insertion Process:](#binary-search-tree-bst-insertion-process)
-	- [Binary Search Tree (BST) Deletion Process:](#binary-search-tree-bst-deletion-process)
+	- [Binary Search Tree (BST) Insertion Process](#binary-search-tree-bst-insertion-process)
+	- [Binary Search Tree (BST) Deletion Process](#binary-search-tree-bst-deletion-process)
 	- [Applications](#applications)
 	- [Advantages](#advantages)
 	- [Disadvantages](#disadvantages)
@@ -76,7 +76,8 @@ A binary search tree is a special type of binary tree in which the value of each
   - `Deletion:` O(n) (when the tree is unbalanced and degenerates into a linked list)
   - `Traversal:` O(n)
 
-  ### Binary Search Tree (BST) Insertion Process: 
+### Binary Search Tree (BST) Insertion Process
+
   1. Start from the root node.
   2. Compare the value of the new node with the value of the current node.
   3. If the value of the new node is less than the current node's value,
@@ -88,7 +89,8 @@ A binary search tree is a special type of binary tree in which the value of each
   6. Insert the new node at the position found in step 5.
  
  
-  ### Binary Search Tree (BST) Deletion Process: 
+### Binary Search Tree (BST) Deletion Process
+
   1. Find the node to be deleted (target node).
   2. If the target node has no children (leaf node), simply remove it.
   3. If the target node has one child, replace it with its child.
@@ -147,7 +149,8 @@ AVL trees are **self-balancing** binary search trees in which the heights of the
   - Same as average case because AVL trees are self-balancing, preventing worst-case scenarios like those in unbalanced binary search trees.
 
 
-  ### AVL Tree Insertion Process
+### AVL Tree Insertion Process
+
   1. Perform a standard BST insertion for the new node.
   2. Update the height of each node from the inserted node
      to the root.
@@ -171,7 +174,8 @@ AVL trees are **self-balancing** binary search trees in which the heights of the
      up to the root.
  
  
-  ### AVL Tree Deletion Process
+### AVL Tree Deletion Process
+
   1. Perform a standard BST deletion for the node to be deleted.
   2. Update the height of each node from the deleted node's parent
      up to the root.
@@ -244,7 +248,7 @@ Heap trees are **complete binary trees** that satisfy the heap property. In a ma
  
  
 ### Heap Extraction Process (Max-Heap)
- 
+
   1. Swap the root node with the last node at the last level of the heap.
   2. Remove the last node (previously the root node) from the heap.
   3. Restore the max heap property by "sifting down" the new root node:
