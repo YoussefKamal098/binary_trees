@@ -9,6 +9,8 @@
 	- [Overview](#overview-1)
 	- [Key features](#key-features)
 	- [Time Complexity](#time-complexity)
+	- [Binary Search Tree (BST) Insertion Process:](#binary-search-tree-bst-insertion-process)
+	- [Binary Search Tree (BST) Deletion Process:](#binary-search-tree-bst-deletion-process)
 	- [Applications](#applications)
 	- [Advantages](#advantages)
 	- [Disadvantages](#disadvantages)
@@ -16,6 +18,8 @@
 	- [Overview](#overview-2)
 	- [Key features](#key-features-1)
 	- [Time Complexity](#time-complexity-1)
+	- [AVL Tree Insertion Process](#avl-tree-insertion-process)
+	- [AVL Tree Deletion Process](#avl-tree-deletion-process)
 	- [Applications](#applications-1)
 	- [Advantages](#advantages-1)
 	- [Disadvantages](#disadvantages-1)
@@ -23,6 +27,8 @@
 	- [Overview](#overview-3)
 	- [Key features](#key-features-2)
 	- [Time Complexity](#time-complexity-2)
+	- [Heap Insertion Process (Max-Heap)](#heap-insertion-process-max-heap)
+	- [Heap Extraction Process (Max-Heap)](#heap-extraction-process-max-heap)
 	- [Applications](#applications-2)
 	- [Advantages](#advantages-2)
 	- [Disadvantages](#disadvantages-2)
@@ -70,6 +76,37 @@ A binary search tree is a special type of binary tree in which the value of each
   - `Deletion:` O(n) (when the tree is unbalanced and degenerates into a linked list)
   - `Traversal:` O(n)
 
+  ### Binary Search Tree (BST) Insertion Process: 
+  1. Start from the root node.
+  2. Compare the value of the new node with the value of the current node.
+  3. If the value of the new node is less than the current node's value,
+     move to the left subtree.
+  4. If the value of the new node is greater than the current node's value,
+     move to the right subtree.
+  5. Repeat steps 2-4 until reaching a null pointer, indicating the position
+     where the new node should be inserted.
+  6. Insert the new node at the position found in step 5.
+ 
+ 
+  ### Binary Search Tree (BST) Deletion Process: 
+  1. Find the node to be deleted (target node).
+  2. If the target node has no children (leaf node), simply remove it.
+  3. If the target node has one child, replace it with its child.
+  4. If the target node has two children:
+     a. Find the node with the maximum value in its left subtree (or minimum value
+        in its right subtree). This node is called the "in-order predecessor"
+        (or "in-order successor") of the target node.
+     b. Replace the value of the target node with the value of the in-order
+        predecessor (or successor).
+     c. Delete the in-order predecessor (or successor) node, which has become
+        a duplicate.
+ 
+  `Note:` The BST insertion and deletion operations maintain the BST property,
+  ensuring that the elements are organized in a sorted order. These operations
+  have average time complexities of O(log n), where n is the number of nodes
+  in the BST.
+
+
 ### Applications
 
 - `Database Indexing:` BSTs are commonly used in databases to store and index records. They provide efficient searching, insertion, and deletion operations, making data retrieval fast and reliable.
@@ -110,6 +147,51 @@ AVL trees are self-balancing binary search trees in which the heights of the two
   - Same as average case because AVL trees are self-balancing, preventing worst-case scenarios like those in unbalanced binary search trees.
 
 
+### AVL Tree Insertion Process
+  1. Perform a standard BST insertion for the new node.
+  2. Update the height of each node from the inserted node
+     to the root.
+  3. Check if the tree violates the AVL balance property at
+     any node:
+     - Calculate the balance factor (height difference
+       between the left and right subtrees) for each node.
+     - If the balance factor is greater than 1 or less than -1
+       at any node, the tree is unbalanced at that node.
+  4. If an imbalance is detected, perform rotations to restore
+     the AVL balance property:
+     - Left-Left (LL) Case: Right Rotate the unbalanced node.
+     - Right-Right (RR) Case: Left Rotate the unbalanced node.
+     - Left-Right (LR) Case: Left Rotate the left child of the
+       unbalanced node, followed by a Right Rotate of the
+       unbalanced node.
+     - Right-Left (RL) Case: Right Rotate the right child of
+       the unbalanced node, followed by a Left Rotate of the
+       unbalanced node.
+  5. Continue checking and balancing the tree recursively
+     up to the root.
+ 
+ 
+  ### AVL Tree Deletion Process
+  1. Perform a standard BST deletion for the node to be deleted.
+  2. Update the height of each node from the deleted node's parent
+     up to the root.
+  3. Check if the tree violates the AVL balance property at any
+     node:
+     - Calculate the balance factor for each node.
+     - If the balance factor is greater than 1 or less than -1
+       at any node, the tree is unbalanced at that node.
+  4. If an imbalance is detected, perform rotations to restore
+     the AVL balance property, similar to the insertion process.
+  5. Continue checking and balancing the tree recursively
+     up to the root.
+ 
+  `Note:` During both insertion and deletion, rotations may be
+  necessary to maintain the AVL tree's balanced structure.
+  These rotations ensure that the AVL tree remains height-balanced,
+  which results in efficient searching, insertion, and deletion
+  operations.
+
+
 ### Applications
 
 - `Database Indexing and Search Optimization:` AVL trees, being self-balancing, ensure that search operations in databases remain efficient even as the dataset grows. They are used in scenarios where frequent updates to the database are expected, maintaining optimal performance.
@@ -148,7 +230,34 @@ Heap trees are complete binary trees that satisfy the heap property. In a max he
   - `Insertion:` O(log n) (when inserting an element at the bottom level and percolating up)
   - `Extraction:` O(log n) (when extracting the root and percolating down)
   - `Searching:` O(n) (when searching for an arbitrary value in the worst case)
-  
+
+
+  ### Heap Insertion Process (Max-Heap)
+ 
+  1. Perform a standard binary tree insertion by adding the new node
+     as the leftmost available position at the last level of the heap.
+  2. Compare the value of the newly inserted node with its parent.
+  3. If the value of the newly inserted node is greater than its parent's value,
+     swap the node with its parent.
+  4. Repeat step 3 until the heap property is restored (i.e., the parent node
+     has a greater value than its children or the new node is at the root).
+ 
+ 
+  ### Heap Extraction Process (Max-Heap) 
+  1. Swap the root node with the last node at the last level of the heap.
+  2. Remove the last node (previously the root node) from the heap.
+  3. Restore the max heap property by "sifting down" the new root node:
+     - Compare the new root node with its children.
+     - Swap the root node with the child containing the maximum value.
+     - Repeat the process until the max heap property is restored
+       (i.e., the parent node has a greater value than its children).
+ 
+  `Note:` Max heap insertion and extraction operations maintain the heap property,
+  ensuring that the root node always contains the maximum value in the heap.
+  These operations are efficient, with average time complexities of O(log n),
+  where n is the number of elements in the heap.
+
+
 ### Applications
    - `Priority queues:` Heap trees, particularly binary heaps, are commonly used to implement priority queues, where elements are inserted with associated priorities and extracted in order of priority.
    - `Memory Management:` Heap trees are utilized in memory allocation algorithms, such as the buddy system and malloc/free implementations. They help manage dynamic memory allocation efficiently, ensuring that memory requests are serviced promptly and memory fragmentation is minimized.
@@ -174,7 +283,7 @@ Currently no known bugs. 🤝 Feel free to check the [issues page](../../issues/
 
 ## Show your support
 
-Give a ⭐️ if you like this repo!
+Give me a ⭐️ if you like this repo!
 
 ### Authors &copy;
 
