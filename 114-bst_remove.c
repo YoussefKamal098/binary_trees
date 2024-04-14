@@ -1,6 +1,6 @@
 #include "binary_trees.h"
 
-bst_t *bst_min(bst_t *root);
+static bst_t *bst_min(bst_t *root);
 
 /**
  * bst_remove - Removes a node with the specified value from a
@@ -71,7 +71,7 @@ bst_t *bst_remove(bst_t *root, int value)
  * @root: A pointer to the root node of the BST.
  * Return: A pointer to the node with the minimum value in the BST.
  */
-bst_t *bst_min(bst_t *root)
+static bst_t *bst_min(bst_t *root)
 {
 	if (!root->left)
 		return (root);

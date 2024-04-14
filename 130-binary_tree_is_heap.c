@@ -1,8 +1,8 @@
 #include "binary_trees.h"
 
-static bool _binary_tree_is_max_heap(const binary_tree_t *tree);
-void enqueue(queue_t *queue, void *data);
-void *dequeue(queue_t *queue);
+static bool binary_tree_is_max_heap(const binary_tree_t *tree);
+static void enqueue(queue_t *queue, void *data);
+static void *dequeue(queue_t *queue);
 
 /**
  * binary_tree_is_heap - Checks if a binary tree is a max heap
@@ -21,11 +21,11 @@ int binary_tree_is_heap(const binary_tree_t *tree)
 	if (!tree)
 		return (false);
 
-	return (binary_tree_is_complete(tree) && _binary_tree_is_max_heap(tree));
+	return (binary_tree_is_complete(tree) && binary_tree_is_max_heap(tree));
 }
 
 /**
- * _binary_tree_is_max_heap - Checks if a binary tree
+ * binary_tree_is_max_heap - Checks if a binary tree
  * satisfies the max heap property
  * @tree: Pointer to the root node of the binary tree
  *
@@ -37,7 +37,7 @@ int binary_tree_is_heap(const binary_tree_t *tree)
  * Return: true if the binary tree satisfies the max heap property,
  * false otherwise
  */
-static bool _binary_tree_is_max_heap(const binary_tree_t *tree)
+static bool binary_tree_is_max_heap(const binary_tree_t *tree)
 {
 	int left = true, right = true;
 
@@ -121,7 +121,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
  * @queue: A pointer to the queue to which the element will be added.
  * @data: A pointer to the data to be stored in the new node.
  */
-void enqueue(queue_t *queue, void *data)
+static void enqueue(queue_t *queue, void *data)
 {
 	linked_list_node_t *newNode;
 
@@ -158,7 +158,7 @@ void enqueue(queue_t *queue, void *data)
  * Return: A pointer to the data of the removed element,
  * or NULL if the queue is empty.
  */
-void *dequeue(queue_t *queue)
+static void *dequeue(queue_t *queue)
 {
 	linked_list_node_t *temp;
 	void *data;

@@ -1,8 +1,6 @@
 #include "binary_trees.h"
 
-size_t binary_tree_height(const binary_tree_t *tree);
-size_t binary_tree_size(const binary_tree_t *tree);
-int _pow(int x, int y);
+static int _pow(int x, int y);
 
 /**
  * binary_tree_is_perfect - Checks if the left and right subtrees of a
@@ -83,7 +81,7 @@ size_t binary_tree_size(const binary_tree_t *tree)
  * If the exponent is negative, the function returns -1.
  */
 
-int _pow(int x, int y)
+static int _pow(int x, int y)
 {
 	if (y < 0)
 		return (-1);

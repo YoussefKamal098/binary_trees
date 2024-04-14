@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
-avl_t *apply_rotation(avl_t *tree);
-bst_t *bst_min(bst_t *root);
+static avl_t *apply_rotation(avl_t *tree);
+static bst_t *bst_min(bst_t *root);
 
 /**
  * avl_remove - Removes a node with a specific value from an AVL tree.
@@ -72,7 +72,7 @@ bst_t *avl_remove(bst_t *root, int value)
  *
  * Return: Pointer to the root of the AVL tree after applying rotations.
  */
-avl_t *apply_rotation(avl_t *tree)
+static avl_t *apply_rotation(avl_t *tree)
 {
 	int balance_factor = binary_tree_balance(tree);
 
@@ -107,7 +107,7 @@ avl_t *apply_rotation(avl_t *tree)
  * @root: A pointer to the root node of the BST.
  * Return: A pointer to the node with the minimum value in the BST.
  */
-bst_t *bst_min(bst_t *root)
+static bst_t *bst_min(bst_t *root)
 {
 	if (!root->left)
 		return (root);

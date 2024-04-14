@@ -1,7 +1,6 @@
 #include "binary_trees.h"
 
-int height_and_balance(const binary_tree_t *tree, bool *is_balanced);
-int binary_tree_is_bst(const binary_tree_t *tree);
+static int height_and_balance(const binary_tree_t *tree, bool *is_balanced);
 static int _binary_tree_is_bst(const binary_tree_t *tree, int min, int max);
 
 /**
@@ -41,7 +40,7 @@ int binary_tree_is_avl(const binary_tree_t *tree)
  * indicating whether the tree is balanced.
  * Return: The height of the binary tree.
  */
-int height_and_balance(const binary_tree_t *tree, bool *is_balanced)
+static int height_and_balance(const binary_tree_t *tree, bool *is_balanced)
 {
 	int left_height, right_height;
 

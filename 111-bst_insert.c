@@ -1,7 +1,6 @@
 #include "binary_trees.h"
 
-bst_t *_bst_insert(bst_t *tree, const bst_t *new_node);
-bst_t *_bst_search(bst_t *tree, int value);
+static bst_t *_bst_insert(bst_t *tree, const bst_t *new_node);
 
 /**
  * bst_insert - Inserts a new node with the given value into a binary
@@ -23,7 +22,7 @@ bst_t *bst_insert(bst_t **tree, int value)
 	if (!tree || !new_node)
 		return (NULL);
 
-	if (_bst_search(*tree, value))
+	if (bst_search(*tree, value))
 	{
 		free(new_node);
 		return (NULL);
@@ -43,7 +42,7 @@ bst_t *bst_insert(bst_t **tree, int value)
  * @new_node: A pointer to the new node to be inserted into the BST.
  * Return: A pointer to the root node of the modified BST.
  */
-bst_t *_bst_insert(bst_t *tree, const bst_t *new_node)
+static bst_t *_bst_insert(bst_t *tree, const bst_t *new_node)
 {
 	if (!tree)
 		return ((bst_t *)new_node);
@@ -64,7 +63,7 @@ bst_t *_bst_insert(bst_t *tree, const bst_t *new_node)
 }
 
 /**
- * _bst_search - Helper function to search for a value in a BST.
+ * bst_search - Helper function to search for a value in a BST.
  *
  * Searches for the specified value in the BST recursively.
  *
@@ -73,7 +72,7 @@ bst_t *_bst_insert(bst_t *tree, const bst_t *new_node)
  * Return: A pointer to the node containing the value if found,
  * NULL otherwise.
  */
-bst_t *_bst_search(bst_t *tree, int value)
+bst_t *bst_search(bst_t *tree, int value)
 {
 	if (!tree)
 		return (NULL);

@@ -1,9 +1,9 @@
 #include "binary_trees.h"
 
-queue_t *create_queue();
-void enqueue(queue_t *queue, void *data);
-void *dequeue(queue_t *queue);
-bool is_empty(queue_t *queue);
+static queue_t *create_queue();
+static void enqueue(queue_t *queue, void *data);
+static void *dequeue(queue_t *queue);
+static bool is_empty(queue_t *queue);
 
 /**
  * binary_tree_is_complete - Checks if a binary tree is complete.
@@ -59,7 +59,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
  * Return: A pointer to the newly created queue,
  * or NULL if memory allocation fails.
  */
-queue_t *create_queue()
+static queue_t *create_queue()
 {
 	queue_t *queue = (queue_t *)malloc(sizeof(queue_t));
 
@@ -84,7 +84,7 @@ queue_t *create_queue()
  * @queue: A pointer to the queue to which the element will be added.
  * @data: A pointer to the data to be stored in the new node.
  */
-void enqueue(queue_t *queue, void *data)
+static void enqueue(queue_t *queue, void *data)
 {
 	linked_list_node_t *newNode;
 
@@ -121,7 +121,7 @@ void enqueue(queue_t *queue, void *data)
  * Return: A pointer to the data of the removed element,
  * or NULL if the queue is empty.
  */
-void *dequeue(queue_t *queue)
+static void *dequeue(queue_t *queue)
 {
 	linked_list_node_t *temp;
 	void *data;
@@ -153,7 +153,7 @@ void *dequeue(queue_t *queue)
  * Return: true if the queue is empty, false otherwise.
  */
 
-bool is_empty(queue_t *queue)
+static bool is_empty(queue_t *queue)
 {
 	return (!queue->head);
 }

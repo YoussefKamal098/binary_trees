@@ -1,36 +1,32 @@
-# Binary Trees
+<h1>Binary Trees</h1>
 
-## Table of the Contents
-- [Binary Trees](#binary-trees)
-	- [Table of the Contents](#table-of-the-contents)
-	- [Binary Trees (General)](#binary-trees-general)
-		- [Overview](#overview)
-		- [Key concepts and operations](#key-concepts-and-operations)
-	- [Binary Search Trees (BST)](#binary-search-trees-bst)
-		- [Overview](#overview-1)
-		- [Key features](#key-features)
-		- [Time Complexity](#time-complexity)
-		- [Applications](#applications)
-		- [Advantages](#advantages)
-		- [Disadvantages](#disadvantages)
-	- [AVL Trees](#avl-trees)
-		- [Overview](#overview-2)
-		- [Key features](#key-features-1)
-		- [Time Complexity](#time-complexity-1)
-		- [Applications](#applications-1)
-		- [Advantages](#advantages-1)
-		- [Disadvantages](#disadvantages-1)
-	- [Heap Trees (Max-heap - Min-heap)](#heap-trees-max-heap---min-heap)
-		- [Overview](#overview-3)
-		- [Key features](#key-features-2)
-		- [Time Complexity](#time-complexity-2)
-		- [Applications](#applications-2)
-		- [Advantages](#advantages-2)
-		- [Disadvantages](#disadvantages-2)
-	- [Max Heap](#max-heap)
-		- [Overview](#overview-4)
-		- [Key features](#key-features-3)
-	- [Conclusion](#conclusion)
+<h2> Table of the Contents </h2>
+
+- [Binary Trees (General)](#binary-trees-general)
+	- [Overview](#overview)
+	- [Key concepts and operations](#key-concepts-and-operations)
+- [Binary Search Trees (BST)](#binary-search-trees-bst)
+	- [Overview](#overview-1)
+	- [Key features](#key-features)
+	- [Time Complexity](#time-complexity)
+	- [Applications](#applications)
+	- [Advantages](#advantages)
+	- [Disadvantages](#disadvantages)
+- [AVL Trees](#avl-trees)
+	- [Overview](#overview-2)
+	- [Key features](#key-features-1)
+	- [Time Complexity](#time-complexity-1)
+	- [Applications](#applications-1)
+	- [Advantages](#advantages-1)
+	- [Disadvantages](#disadvantages-1)
+- [Heap Trees (Max-heap - Min-heap)](#heap-trees-max-heap---min-heap)
+	- [Overview](#overview-3)
+	- [Key features](#key-features-2)
+	- [Time Complexity](#time-complexity-2)
+	- [Applications](#applications-2)
+	- [Advantages](#advantages-2)
+	- [Disadvantages](#disadvantages-2)
+- [Conclusion](#conclusion)
 
 ## Binary Trees (General)
 ### Overview
@@ -77,8 +73,6 @@ A binary search tree is a special type of binary tree in which the value of each
 - `Symbol Tables`: BSTs are employed in compilers, interpreters, and symbol tables for storing identifiers (such as variables and functions) and quickly searching for them during compilation or interpretation processes.
 - `File System Structure`: File systems often use BSTs to organize directory structures. Each directory entry can be stored in a BST, allowing for efficient searching and traversal of directories.
 
-Certainly! Let's explore the advantages and disadvantages of Binary Search Trees (BSTs), AVL Trees, and Heap Trees:
-
 ### Advantages
 - `Efficient Searching`: BSTs offer efficient searching operations with a time complexity of O(log n) on average, making them suitable for applications requiring fast retrieval of data.
 - `Ordered Structure`: BSTs maintain a sorted order of elements, facilitating operations like finding minimum and maximum values, as well as range queries.
@@ -100,9 +94,6 @@ AVL trees are self-balancing binary search trees in which the heights of the two
 - `Balancing Factor:` The difference in height between the left and right subtrees of a node is called the balancing factor. AVL trees use rotation operations to rebalance the tree when necessary to maintain the balancing factor.
 - `Rotation Operations:` AVL trees employ rotation operations such as left rotation, right rotation, left-right rotation, and right-left rotation to restore balance after insertion or deletion.
 - `Self-Balancing:` AVL trees automatically adjust their structure to ensure that the tree remains balanced, optimizing performance for search and other operations.
-
-Certainly! Here's an overview of the time complexity for various operations on binary trees, including average, best, and worst-case scenarios:
-
 
 ### Time Complexity
 
@@ -171,16 +162,6 @@ Heap trees are complete binary trees that satisfy the heap property. In a max he
 - `Lack of Order`: Unlike BSTs, Heap Trees do not maintain any specific order among elements, which limits their applicability for operations requiring sorted data.
 - `Limited Flexibility`: Heap Trees are primarily designed for priority queue operations and do not support other common binary search tree operations such as searching for specific values or range queries.
 - `Inefficient Update Operations`: Updating elements in a Heap Tree (e.g., changing the priority of an existing element) typically requires deletion followed by reinsertion, resulting in less efficient update operations compared to AVL Trees.
-
-## Max Heap
-
-### Overview
-A max heap is a complete binary tree in which every parent node has a value greater than or equal to the values of its children. The root node contains the maximum value in the heap.
-
-### Key features
-- `Max Heap Property:` In a max heap, every parent node has a value greater than or equal to the values of its children.
-- `Insertion:` When inserting a new node into a max heap, it is added at the bottom level of the tree and then "bubbled up" to its correct position by swapping it with its parent as needed to maintain the max heap property.
-- `Extraction:` Extracting the maximum value from a max heap involves removing the root node (which contains the maximum value) and then restoring the max heap property by "bubbling down" the new root value to its correct position.
 
 ## Conclusion
 These are the essential concepts and operations associated with binary trees, BSTs, AVL trees, and heap trees, along with specific details for max heaps. Each type of tree has its unique characteristics and use cases, making them suitable for different scenarios based on their properties and performance characteristics.

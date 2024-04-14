@@ -1,9 +1,9 @@
 #include "binary_trees.h"
 
 static heap_t *get_heap_empty_slot(heap_t *root);
-static heap_t *maxify(heap_t *tree);
-void swap_with_right_child(binary_tree_t *parent);
-void swap_with_left_child(binary_tree_t *parent);
+static heap_t *maxify_up(heap_t *tree);
+static void swap_with_right_child(binary_tree_t *parent);
+static void swap_with_left_child(binary_tree_t *parent);
 
 /**
  * heap_insert - Inserts a value into a binary max heap
@@ -18,7 +18,7 @@ void swap_with_left_child(binary_tree_t *parent);
  * the root of the heap. Otherwise, it finds the empty slot in the
  * heap using the get_heap_empty_slot function and inserts the new
  * node at that position. After insertion, it restores the max heap
- * property by calling the maxify function on the newly inserted node.
+ * property by calling the maxify_up function on the newly inserted node.
  */
 heap_t *heap_insert(heap_t **root, int value)
 {
@@ -44,7 +44,7 @@ heap_t *heap_insert(heap_t **root, int value)
 
 	new_node->parent = new_node_parent;
 
-	*root = maxify(new_node);
+	*root = maxify_up(new_node);
 
 	return (new_node);
 }
@@ -126,9 +126,9 @@ size_t binary_tree_size(const binary_tree_t *tree)
 }
 
 /**
- * maxify - Ensures that the max heap property is maintained after
+ * maxify_up - Ensures that the max heap property is maintained after
  * inserting a node
- * @tree: Pointer to the node to maxify
+ * @tree: Pointer to the node to maxify_up
  *
  * This function ensures that the max heap property is maintained
  * after inserting a node into a max heap binary tree. It recursively
@@ -137,7 +137,7 @@ size_t binary_tree_size(const binary_tree_t *tree)
  *
  * Return: Pointer to the root of the updated max heap binary tree
  */
-static heap_t *maxify(heap_t *tree)
+static heap_t *maxify_up(heap_t *tree)
 {
 	if (!tree)
 		return (NULL);
@@ -152,10 +152,10 @@ static heap_t *maxify(heap_t *tree)
 		else
 			swap_with_right_child(tree->parent);
 
-		return (maxify(tree));
+		return (maxify_up(tree));
 	}
 
-	return (maxify(tree->parent));
+	return (maxify_up(tree->parent));
 }
 
 /**
@@ -166,7 +166,7 @@ static heap_t *maxify(heap_t *tree)
  * It updates the parent-child relationships accordingly and maintains
  * the heap structure after the swap.
  */
-void swap_with_left_child(binary_tree_t *parent)
+static void swap_with_left_child(binary_tree_t *parent)
 {
 	binary_tree_t *left_right_child, *left_child;
 
@@ -213,7 +213,7 @@ void swap_with_left_child(binary_tree_t *parent)
  * It updates the parent-child relationships accordingly and maintains
  * the heap structure after the swap.
  */
-void swap_with_right_child(binary_tree_t *parent)
+static void swap_with_right_child(binary_tree_t *parent)
 {
 	binary_tree_t *right_child, *right_left_child;
 

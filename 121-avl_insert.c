@@ -1,8 +1,7 @@
 #include "binary_trees.h"
 
-bst_t *_bst_insert(bst_t *tree, const bst_t *new_node);
-bst_t *_bst_search(bst_t *tree, int value);
-avl_t *fix_avl_insert(avl_t *tree, int value);
+static bst_t *_bst_insert(bst_t *tree, const bst_t *new_node);
+static avl_t *apply_rotations(avl_t *tree, int value);
 
 /**
  * avl_insert - Inserts a value into an AVL tree and maintains AVL properties.
@@ -23,13 +22,13 @@ avl_t *avl_insert(avl_t **tree, int value)
 	if (!new_node)
 		return (NULL);
 
-	*tree = fix_avl_insert(*tree, value);
+	*tree = apply_rotations(*tree, value);
 
 	return (new_node);
 }
 
 /**
- * fix_avl_insert - Fixes AVL tree balance after insertion of a node.
+ * apply_rotations - Fixes AVL tree balance after insertion of a node.
  * @tree: Pointer to the root of the AVL tree.
  * @value: Value of the newly inserted node.
  *
@@ -40,17 +39,17 @@ avl_t *avl_insert(avl_t **tree, int value)
  *
  * Return: Pointer to the root of the AVL tree after fixing balance.
  */
-avl_t *fix_avl_insert(avl_t *tree, int value)
+static avl_t *apply_rotations(avl_t *tree, int value)
 {
 	int balance_factor = 0;
 
 	if (tree->n > value)
 	{
-		tree->left = fix_avl_insert(tree->left, value);
+		tree->left = apply_rotations(tree->left, value);
 	}
 	else if (tree->n < value)
 	{
-		tree->right = fix_avl_insert(tree->right, value);
+		tree->right = apply_rotations(tree->right, value);
 	}
 
 	balance_factor = binary_tree_balance(tree);
@@ -96,7 +95,7 @@ bst_t *bst_insert(bst_t **tree, int value)
 	if (!tree || !new_node)
 		return (NULL);
 
-	if (_bst_search(*tree, value))
+	if (bst_search(*tree, value))
 	{
 		free(new_node);
 		return (NULL);
@@ -116,7 +115,7 @@ bst_t *bst_insert(bst_t **tree, int value)
  * @new_node: A pointer to the new node to be inserted into the BST.
  * Return: A pointer to the root node of the modified BST.
  */
-bst_t *_bst_insert(bst_t *tree, const bst_t *new_node)
+static bst_t *_bst_insert(bst_t *tree, const bst_t *new_node)
 {
 	if (!tree)
 		return ((bst_t *)new_node);
@@ -137,7 +136,7 @@ bst_t *_bst_insert(bst_t *tree, const bst_t *new_node)
 }
 
 /**
- * _bst_search - Helper function to search for a value in a BST.
+ * bst_search - Helper function to search for a value in a BST.
  *
  * Searches for the specified value in the BST recursively.
  *
@@ -146,7 +145,7 @@ bst_t *_bst_insert(bst_t *tree, const bst_t *new_node)
  * Return: A pointer to the node containing the value if found,
  * NULL otherwise.
  */
-bst_t *_bst_search(bst_t *tree, int value)
+bst_t *bst_search(bst_t *tree, int value)
 {
 	if (!tree)
 		return (NULL);

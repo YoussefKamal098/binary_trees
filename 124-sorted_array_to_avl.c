@@ -1,6 +1,6 @@
 #include "binary_trees.h"
 
-avl_t *_helper(int *array, size_t left, size_t right);
+static avl_t *helper(int *array, size_t left, size_t right);
 
 /**
  * sorted_array_to_avl - Constructs an AVL tree from a
@@ -19,11 +19,11 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 	if (!array)
 		return (NULL);
 
-	return (_helper(array, 0, size - 1));
+	return (helper(array, 0, size - 1));
 }
 
 /**
- * _helper - Helper function to recursively build AVL tree from a sorted array.
+ * helper - Helper function to recursively build AVL tree from a sorted array.
  * @array: Pointer to the sorted array of integers.
  * @left: Index of the left boundary of the current subarray.
  * @right: Index of the right boundary of the current subarray.
@@ -35,7 +35,7 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
  * Return: Pointer to the root of the AVL tree constructed
  * from the current subarray.
  */
-avl_t *_helper(int *array, size_t left, size_t right)
+static avl_t *helper(int *array, size_t left, size_t right)
 {
 	size_t mid;
 	avl_t *tree;
@@ -49,8 +49,8 @@ avl_t *_helper(int *array, size_t left, size_t right)
 	mid = (right - left) / 2 + left;
 
 	tree = binary_tree_node(NULL, array[mid]);
-	tree->left = _helper(array, left, mid - 1);
-	tree->right = _helper(array, mid + 1, right);
+	tree->left = helper(array, left, mid - 1);
+	tree->right = helper(array, mid + 1, right);
 
 	if (tree->left)
 		tree->left->parent = tree;
