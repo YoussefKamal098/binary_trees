@@ -46,8 +46,6 @@ Binary trees are hierarchical data structures composed of nodes, where each node
 - `Insertion and Deletion:` Adding and removing nodes from the tree while maintaining the binary tree properties.
 - `Balanced vs. Unbalanced Trees:` Balanced trees have approximately the same number of nodes on the left and right subtrees, leading to more efficient operations.
 
-Certainly! Here's an overview of the time complexity for various operations on binary trees, including average, best, and worst-case scenarios:
-
 
 ## Binary Search Trees (BST)
 
