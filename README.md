@@ -147,7 +147,7 @@ AVL trees are self-balancing binary search trees in which the heights of the two
   - Same as average case because AVL trees are self-balancing, preventing worst-case scenarios like those in unbalanced binary search trees.
 
 
-### AVL Tree Insertion Process
+  ### AVL Tree Insertion Process
   1. Perform a standard BST insertion for the new node.
   2. Update the height of each node from the inserted node
      to the root.
@@ -233,7 +233,6 @@ Heap trees are complete binary trees that satisfy the heap property. In a max he
 
 
   ### Heap Insertion Process (Max-Heap)
- 
   1. Perform a standard binary tree insertion by adding the new node
      as the leftmost available position at the last level of the heap.
   2. Compare the value of the newly inserted node with its parent.
