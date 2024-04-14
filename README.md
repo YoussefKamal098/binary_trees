@@ -232,7 +232,8 @@ Heap trees are **complete binary trees** that satisfy the heap property. In a ma
   - `Searching:` O(n) (when searching for an arbitrary value in the worst case)
 
 
-  ### Heap Insertion Process (Max-Heap)
+### Heap Insertion Process (Max-Heap)
+
   1. Perform a standard binary tree insertion by adding the new node
      as the leftmost available position at the last level of the heap.
   2. Compare the value of the newly inserted node with its parent.
@@ -242,7 +243,8 @@ Heap trees are **complete binary trees** that satisfy the heap property. In a ma
      has a greater value than its children or the new node is at the root).
  
  
-  ### Heap Extraction Process (Max-Heap) 
+### Heap Extraction Process (Max-Heap)
+ 
   1. Swap the root node with the last node at the last level of the heap.
   2. Remove the last node (previously the root node) from the heap.
   3. Restore the max heap property by "sifting down" the new root node:
