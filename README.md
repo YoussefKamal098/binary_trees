@@ -30,14 +30,14 @@
 Binary trees are hierarchical data structures composed of nodes, where each node has at most two children, referred to as the left child and the right child. The topmost node of the tree is called the root. Nodes that do not have any children are called leaf nodes. Binary trees are used in various applications, including representing hierarchical data such as directory structures, expression parsing, and more.
 
 ### Key concepts and operations
-- **Node:** Each element in a binary tree is called a node. Nodes contain data and references (or pointers) to their left and right children.
-- **Root:** The topmost node of the tree.
-- **Parent, Child, Sibling:** Nodes in a binary tree have a parent-child relationship. Nodes with the same parent are called siblings.
-- **Leaf Node:** Nodes that do not have any children.
-- **Traversal:** Techniques for visiting all nodes in a tree in a specific order, such as in-order, pre-order, and post-order traversal.
-- **Search:** Searching for a specific node or value in the tree.
-- **Insertion and Deletion:** Adding and removing nodes from the tree while maintaining the binary tree properties.
-- **Balanced vs. Unbalanced Trees:** Balanced trees have approximately the same number of nodes on the left and right subtrees, leading to more efficient operations.
+- `Node`:Each element in a binary tree is called a node. Nodes contain data and references (or pointers) to their left and right children.
+- `Root`: The topmost node of the tree.
+- `Parent, Child, Sibling:` Nodes in a binary tree have a parent-child relationship. Nodes with the same parent are called siblings.
+- `Leaf Node:` Nodes that do not have any children.
+- `Traversal:` Techniques for visiting all nodes in a tree in a specific order, such as in-order, pre-order, and post-order traversal.
+- `Search:` Searching for a specific node or value in the tree.
+- `Insertion and Deletion:` Adding and removing nodes from the tree while maintaining the binary tree properties.
+- `Balanced vs. Unbalanced Trees:` Balanced trees have approximately the same number of nodes on the left and right subtrees, leading to more efficient operations.
 
 Certainly! Here's an overview of the time complexity for various operations on binary trees, including average, best, and worst-case scenarios:
 
@@ -48,9 +48,9 @@ Certainly! Here's an overview of the time complexity for various operations on b
 A binary search tree is a special type of binary tree in which the value of each node is greater than all values in its left subtree and less than all values in its right subtree. This property allows for efficient search, insertion, and deletion operations.
 
 ### Key features
-- **Search Operation:** Binary search trees support efficient search operations by recursively traversing the tree based on the comparison of values.
-- **Insertion:** When inserting a new node, the tree maintains the binary search tree property by finding the appropriate position based on the node's value.
-- **Deletion:** Deleting a node requires maintaining the binary search tree property while handling different cases such as nodes with zero, one, or two children.
+- `Search Operation:` Binary search trees support efficient search operations by recursively traversing the tree based on the comparison of values.
+- `Insertion:` When inserting a new node, the tree maintains the binary search tree property by finding the appropriate position based on the node's value.
+- `Deletion:` Deleting a node requires maintaining the binary search tree property while handling different cases such as nodes with zero, one, or two children.
 
 ### Time Complexity
 
@@ -119,7 +119,7 @@ Heap trees are complete binary trees that satisfy the heap property. In a max he
 
 - **Average Case:**
   - `Insertion`: O(log n)
-  - `Extraction` (root): O(log n)
+  - `Extraction (root)`: O(log n)
   - `Searching`: O(n) (searching for an arbitrary value)
 
 - **Worst Case:**
@@ -139,9 +139,9 @@ Heap trees are complete binary trees that satisfy the heap property. In a max he
 A max heap is a complete binary tree in which every parent node has a value greater than or equal to the values of its children. The root node contains the maximum value in the heap.
 
 ### Key features
-- **Max Heap Property:** In a max heap, every parent node has a value greater than or equal to the values of its children.
-- **Insertion:** When inserting a new node into a max heap, it is added at the bottom level of the tree and then "bubbled up" to its correct position by swapping it with its parent as needed to maintain the max heap property.
-- **Extraction:** Extracting the maximum value from a max heap involves removing the root node (which contains the maximum value) and then restoring the max heap property by "bubbling down" the new root value to its correct position.
+- `Max Heap Property:` In a max heap, every parent node has a value greater than or equal to the values of its children.
+- `Insertion:` When inserting a new node into a max heap, it is added at the bottom level of the tree and then "bubbled up" to its correct position by swapping it with its parent as needed to maintain the max heap property.
+- `Extraction:` Extracting the maximum value from a max heap involves removing the root node (which contains the maximum value) and then restoring the max heap property by "bubbling down" the new root value to its correct position.
 
 These are the essential concepts and operations associated with binary trees, BSTs, AVL trees, and heap trees, along with specific details for max heaps. Each type of tree has its unique characteristics and use cases
 
