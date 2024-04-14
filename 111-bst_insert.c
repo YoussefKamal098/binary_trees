@@ -72,15 +72,15 @@ static bst_t *_bst_insert(bst_t *tree, const bst_t *new_node)
  * Return: A pointer to the node containing the value if found,
  * NULL otherwise.
  */
-bst_t *bst_search(bst_t *tree, int value)
+bst_t *bst_search(const bst_t *tree, int value)
 {
 	if (!tree)
 		return (NULL);
 
 	if (tree->n > value)
-		return (_bst_search(tree->left, value));
+		return (bst_search(tree->left, value));
 	if (tree->n < value)
-		return (_bst_search(tree->right, value));
+		return (bst_search(tree->right, value));
 
-	return (tree);
+	return ((bst_t *)tree);
 }
