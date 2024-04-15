@@ -117,8 +117,6 @@ A binary search tree is a special type of binary tree in which the value of each
   5. Repeat steps 2-4 until reaching a null pointer, indicating the position
      where the new node should be inserted.
   6. Insert the new node at the position found in step 5.
-   
-    [bst_insert.c](./111-bst_insert.c)
  
  
 ### Binary Search Tree (BST) Deletion Process 
@@ -134,8 +132,6 @@ A binary search tree is a special type of binary tree in which the value of each
         predecessor (or successor).
      c. Delete the in-order predecessor (or successor) node, which has become
         a duplicate.
- 
-    [bst_remove.c](./114-bst_remove.c)
 
   `Note:` The BST insertion and deletion operations maintain the BST property,
   ensuring that the elements are organized in a sorted order. These operations
@@ -206,9 +202,6 @@ AVL trees are **self-balancing** binary search trees in which the heights of the
        unbalanced node.
   5. Continue checking and balancing the tree recursively
      up to the root.
-
-   [avl_insert.c](./121-avl_insert.c)
- 
  
 ### AVL Tree Deletion Process
 
@@ -224,8 +217,6 @@ AVL trees are **self-balancing** binary search trees in which the heights of the
      the AVL balance property, similar to the insertion process.
   5. Continue checking and balancing the tree recursively
      up to the root.
-
-   [avl_remove.c](./123-avl_remove.c)
  
   `Note:` During both insertion and deletion, rotations may be
   necessary to maintain the AVL tree's balanced structure.
@@ -283,8 +274,6 @@ Heap trees are **complete binary trees** that satisfy the heap property. In a ma
      swap the node with its parent.
   4. Repeat step 3 until the heap property is restored (i.e., the parent node
      has a greater value than its children or the new node is at the root).
-
-   [heap_insert.c](./131-heap_insert.c)
  
 ### Heap Extraction Process (Max-Heap)
 
@@ -295,8 +284,6 @@ Heap trees are **complete binary trees** that satisfy the heap property. In a ma
      - Swap the root node with the child containing the maximum value.
      - Repeat the process until the max heap property is restored
        (i.e., the parent node has a greater value than its children).
-
-   [heap_extract.c](./133-heap_extract.c)
  
   `Note:` Max heap insertion and extraction operations maintain the heap property,
   ensuring that the root node always contains the maximum value in the heap.
