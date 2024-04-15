@@ -5,12 +5,13 @@
 - [Binary Trees (General)](#binary-trees-general)
 	- [Overview](#overview)
 	- [Key concepts and operations](#key-concepts-and-operations)
+- [Binary trees classification](#binary-trees-classification)
 - [Binary Search Trees (BST)](#binary-search-trees-bst)
 	- [Overview](#overview-1)
 	- [Key features](#key-features)
 	- [Time Complexity](#time-complexity)
-	- [Binary Search Tree (BST) Insertion Process](#binary-search-tree-bst-insertion-process)
-	- [Binary Search Tree (BST) Deletion Process](#binary-search-tree-bst-deletion-process)
+	- [Binary Search Tree (BST) Insertion Process -\> bst\_insert.c](#binary-search-tree-bst-insertion-process---bst_insertc)
+	- [Binary Search Tree (BST) Deletion Process -\> bst\_remove.c](#binary-search-tree-bst-deletion-process---bst_removec)
 	- [Applications](#applications)
 	- [Advantages](#advantages)
 	- [Disadvantages](#disadvantages)
@@ -18,8 +19,8 @@
 	- [Overview](#overview-2)
 	- [Key features](#key-features-1)
 	- [Time Complexity](#time-complexity-1)
-	- [AVL Tree Insertion Process](#avl-tree-insertion-process)
-	- [AVL Tree Deletion Process](#avl-tree-deletion-process)
+	- [AVL Tree Insertion Process -\> avl\_insert.c](#avl-tree-insertion-process---avl_insertc)
+	- [AVL Tree Deletion Process  -\> avl\_remove.c](#avl-tree-deletion-process----avl_removec)
 	- [Applications](#applications-1)
 	- [Advantages](#advantages-1)
 	- [Disadvantages](#disadvantages-1)
@@ -27,11 +28,12 @@
 	- [Overview](#overview-3)
 	- [Key features](#key-features-2)
 	- [Time Complexity](#time-complexity-2)
-	- [Heap Insertion Process (Max-Heap)](#heap-insertion-process-max-heap)
-	- [Heap Extraction Process (Max-Heap)](#heap-extraction-process-max-heap)
+	- [Heap Insertion Process (Max-Heap) -\> heap\_insert.c](#heap-insertion-process-max-heap---heap_insertc)
+	- [Heap Extraction Process (Max-Heap) -\> heap\_extract.c](#heap-extraction-process-max-heap---heap_extractc)
 	- [Applications](#applications-2)
 	- [Advantages](#advantages-2)
 	- [Disadvantages](#disadvantages-2)
+- [Files Compilation](#files-compilation)
 - [Conclusion](#conclusion)
 - [Known Bugs](#known-bugs)
 - [Show your support](#show-your-support)
@@ -50,6 +52,27 @@ Binary trees are hierarchical data structures composed of nodes, where each node
 - `Search:` Searching for a specific node or value in the tree.
 - `Insertion and Deletion:` Adding and removing nodes from the tree while maintaining the binary tree properties.
 - `Balanced vs. Unbalanced Trees:` Balanced trees have approximately the same number of nodes on the left and right subtrees, leading to more efficient operations.
+
+
+## Binary trees classification
+
+Binary trees can be classified into different categories based on various characteristics. Here are some common classifications of binary trees:
+
+1. `Full Binary Tree:` A binary tree in which every node other than the leaves has two children.
+
+2. `Complete Binary Tree:` A binary tree in which all levels are completely filled except possibly for the last level, which is filled from left to right.
+
+3. `Perfect Binary Tree:` A binary tree in which all internal nodes have two children and all leaf nodes are at the same level.
+
+4. `Balanced Binary Tree:` A binary tree in which the height of the left and right subtrees of any node differs by at most one.
+
+5. `Degenerate (or Pathological) Binary Tree:` A binary tree in which each parent node has only one associated child node.
+
+6. `Binary Search Tree (BST):` A binary tree in which for each node, all elements in its left subtree are less than the node's value, and all elements in its right subtree are greater than the node's value.
+
+7. `AVL Tree:` A self-balancing binary search tree in which the heights of the two child subtrees of any node differ by at most one.
+
+These are some common classifications, but there are also other types of binary trees used in different scenarios and applications. Each classification has its own characteristics and properties that make it suitable for specific use cases.
 
 
 ## Binary Search Trees (BST)
@@ -76,7 +99,7 @@ A binary search tree is a special type of binary tree in which the value of each
   - `Deletion:` O(n) (when the tree is unbalanced and degenerates into a linked list)
   - `Traversal:` O(n)
 
-### Binary Search Tree (BST) Insertion Process
+### Binary Search Tree (BST) Insertion Process -> [bst_insert.c](./111-bst_insert.c)
 
   1. Start from the root node.
   2. Compare the value of the new node with the value of the current node.
@@ -89,7 +112,7 @@ A binary search tree is a special type of binary tree in which the value of each
   6. Insert the new node at the position found in step 5.
  
  
-### Binary Search Tree (BST) Deletion Process
+### Binary Search Tree (BST) Deletion Process -> [bst_remove.c](./114-bst_remove.c)
 
   1. Find the node to be deleted (target node).
   2. If the target node has no children (leaf node), simply remove it.
@@ -149,7 +172,7 @@ AVL trees are **self-balancing** binary search trees in which the heights of the
   - Same as average case because AVL trees are self-balancing, preventing worst-case scenarios like those in unbalanced binary search trees.
 
 
-### AVL Tree Insertion Process
+### AVL Tree Insertion Process -> [avl_insert.c](./121-avl_insert.c)
 
   1. Perform a standard BST insertion for the new node.
   2. Update the height of each node from the inserted node
@@ -174,7 +197,7 @@ AVL trees are **self-balancing** binary search trees in which the heights of the
      up to the root.
  
  
-### AVL Tree Deletion Process
+### AVL Tree Deletion Process  -> [avl_remove.c](./123-avl_remove.c)
 
   1. Perform a standard BST deletion for the node to be deleted.
   2. Update the height of each node from the deleted node's parent
@@ -236,7 +259,7 @@ Heap trees are **complete binary trees** that satisfy the heap property. In a ma
   - `Searching:` O(n) (when searching for an arbitrary value in the worst case)
 
 
-### Heap Insertion Process (Max-Heap)
+### Heap Insertion Process (Max-Heap) -> [heap_insert.c](./131-heap_insert.c)
 
   1. Perform a standard binary tree insertion by adding the new node
      as the leftmost available position at the last level of the heap.
@@ -246,8 +269,7 @@ Heap trees are **complete binary trees** that satisfy the heap property. In a ma
   4. Repeat step 3 until the heap property is restored (i.e., the parent node
      has a greater value than its children or the new node is at the root).
  
- 
-### Heap Extraction Process (Max-Heap)
+### Heap Extraction Process (Max-Heap) -> [heap_extract.c](./133-heap_extract.c)
 
   1. Swap the root node with the last node at the last level of the heap.
   2. Remove the last node (previously the root node) from the heap.
@@ -279,6 +301,9 @@ Heap trees are **complete binary trees** that satisfy the heap property. In a ma
 - `Lack of Order:` Unlike BSTs, Heap Trees do not maintain any specific order among elements, which limits their applicability for operations requiring sorted data.
 - `Limited Flexibility:` Heap Trees are primarily designed for priority queue operations and do not support other common binary search tree operations such as searching for specific values or range queries.
 - `Inefficient Update Operations:` Updating elements in a Heap Tree (e.g., changing the priority of an existing element) typically requires deletion followed by reinsertion, resulting in less efficient update operations compared to AVL Trees.
+
+## Files Compilation
+The files compiled on Ubuntu `20.04 LTS` using `gcc`, using the options `-Wall` `-Wextra` `-Werror` `-pedantic`
 
 ## Conclusion
 These are the essential concepts and operations associated with binary trees, BSTs, AVL trees, and heap trees, along with specific details for max heaps. Each type of tree has its unique characteristics and use cases, making them suitable for different scenarios based on their properties and performance characteristics.
