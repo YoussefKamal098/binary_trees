@@ -34,6 +34,7 @@
 	- [Advantages](#advantages-2)
 	- [Disadvantages](#disadvantages-2)
 - [Files Compilation](#files-compilation)
+- [Betty Style](#betty-style)
 - [Conclusion](#conclusion)
 - [Known Bugs](#known-bugs)
 - [Show your support](#show-your-support)
@@ -58,25 +59,25 @@ Binary trees are hierarchical data structures composed of nodes, where each node
 
 Binary trees can be classified into various types based on their structure, properties, and usage. Here are some common classifications of binary trees:
 
-1. **Full Binary Tree**: A binary tree in which every node has either zero or two children.
+1. `Full Binary Tree`: A binary tree in which every node has either zero or two children.
 
-2. **Complete Binary Tree**: A binary tree in which all levels are completely filled except for possibly the last level, which is filled from left to right.
+2. `Complete Binary Tree`: A binary tree in which all levels are completely filled except for possibly the last level, which is filled from left to right.
 
-3. **Perfect Binary Tree**: A binary tree in which all internal nodes have exactly two children, and all leaf nodes are at the same level.
+3. `Perfect Binary Tree`: A binary tree in which all internal nodes have exactly two children, and all leaf nodes are at the same level.
 
-4. **Balanced Binary Tree**: A binary tree in which the heights of the left and right subtrees of any node differ by at most one. Examples include AVL trees, Red-Black trees, and B-trees.
+4. `Balanced Binary Tree`: A binary tree in which the heights of the left and right subtrees of any node differ by at most one. Examples include AVL trees, Red-Black trees, and B-trees.
 
-5. **Degenerate (or Pathological) Binary Tree**: A binary tree in which each parent node has only one associated child node, typically resulting in a structure similar to a linked list.
+5. `Degenerate (or Pathological) Binary Tree`: A binary tree in which each parent node has only one associated child node, typically resulting in a structure similar to a linked list.
 
-6. **Binary Search Tree (BST)**: A binary tree in which the value of each node is greater than all values in its left subtree and less than all values in its right subtree.
+6. `Binary Search Tree (BST)`: A binary tree in which the value of each node is greater than all values in its left subtree and less than all values in its right subtree.
 
-7. **AVL Tree**: A self-balancing binary search tree in which the heights of the left and right subtrees of every node differ by at most one, ensuring logarithmic time complexity for insertion, deletion, and search operations.
+7. `AVL Tree`: A self-balancing binary search tree in which the heights of the left and right subtrees of every node differ by at most one, ensuring logarithmic time complexity for insertion, deletion, and search operations.
 
-8. **Red-Black Tree**: Another type of self-balancing binary search tree that maintains balance through colorings on the nodes and specific rules for balancing, offering guaranteed logarithmic time complexity for insertion, deletion, and search operations.
+8. `Red-Black Tree`: Another type of self-balancing binary search tree that maintains balance through colorings on the nodes and specific rules for balancing, offering guaranteed logarithmic time complexity for insertion, deletion, and search operations.
 
-9. **Heap**: A specialized binary tree data structure in which the value of each node is greater than or equal to (in a max heap) or less than or equal to (in a min heap) the values of its children.
+9. `Heap`: A specialized binary tree data structure in which the value of each node is greater than or equal to (in a max heap) or less than or equal to (in a min heap) the values of its children.
 
-10. **Trie (Prefix Tree)**: A type of tree used for storing a dynamic set of strings where each node represents a common prefix of its descendants.
+10. `Trie (Prefix Tree)`: A type of tree used for storing a dynamic set of strings where each node represents a common prefix of its descendants.
 
 These are some common classifications, but there are also other types of binary trees used in different scenarios and applications. Each classification has its own characteristics and properties that make it suitable for specific use cases.
 
@@ -309,7 +310,11 @@ Heap trees are **complete binary trees** that satisfy the heap property. In a ma
 - `Inefficient Update Operations:` Updating elements in a Heap Tree (e.g., changing the priority of an existing element) typically requires deletion followed by reinsertion, resulting in less efficient update operations compared to AVL Trees.
 
 ## Files Compilation
-The files compiled on Ubuntu `20.04 LTS` using `gcc`, using the options `-Wall` `-Wextra` `-Werror` `-pedantic`
+ - The files compiled on Ubuntu `20.04 LTS` using `gcc`, using the options `-Wall  -Wextra  -Werror -pedantic`
+
+## Betty Style
+  - The code uses the [Betty style](https://github.com/alx-tools/Betty.git).
+
 
 ## Conclusion
 These are the essential concepts and operations associated with binary trees, BSTs, AVL trees, and heap trees, along with specific details for max heaps. Each type of tree has its unique characteristics and use cases, making them suitable for different scenarios based on their properties and performance characteristics.
