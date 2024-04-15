@@ -8,7 +8,7 @@
 - [Binary trees classification](#binary-trees-classification)
 - [Binary Search Trees (BST)](#binary-search-trees-bst)
 	- [Overview](#overview-1)
-	- [Key features](#key-features)
+	- [Key concepts and operations](#key-concepts-and-operations-1)
 	- [Time Complexity](#time-complexity)
 	- [Binary Search Tree (BST) Insertion Process -\> bst\_insert.c](#binary-search-tree-bst-insertion-process---bst_insertc)
 	- [Binary Search Tree (BST) Deletion Process -\> bst\_remove.c](#binary-search-tree-bst-deletion-process---bst_removec)
@@ -17,7 +17,7 @@
 	- [Disadvantages](#disadvantages)
 - [AVL Trees](#avl-trees)
 	- [Overview](#overview-2)
-	- [Key features](#key-features-1)
+	- [Key concepts and operations](#key-concepts-and-operations-2)
 	- [Time Complexity](#time-complexity-1)
 	- [AVL Tree Insertion Process -\> avl\_insert.c](#avl-tree-insertion-process---avl_insertc)
 	- [AVL Tree Deletion Process  -\> avl\_remove.c](#avl-tree-deletion-process----avl_removec)
@@ -26,7 +26,7 @@
 	- [Disadvantages](#disadvantages-1)
 - [Heap Trees (Max-heap - Min-heap)](#heap-trees-max-heap---min-heap)
 	- [Overview](#overview-3)
-	- [Key features](#key-features-2)
+	- [Key concepts and operations](#key-concepts-and-operations-3)
 	- [Time Complexity](#time-complexity-2)
 	- [Heap Insertion Process (Max-Heap) -\> heap\_insert.c](#heap-insertion-process-max-heap---heap_insertc)
 	- [Heap Extraction Process (Max-Heap) -\> heap\_extract.c](#heap-extraction-process-max-heap---heap_extractc)
@@ -56,21 +56,27 @@ Binary trees are hierarchical data structures composed of nodes, where each node
 
 ## Binary trees classification
 
-Binary trees can be classified into different categories based on various characteristics. Here are some common classifications of binary trees:
+Binary trees can be classified into various types based on their structure, properties, and usage. Here are some common classifications of binary trees:
 
-1. `Full Binary Tree:` A binary tree in which every node other than the leaves has two children.
+1. **Full Binary Tree**: A binary tree in which every node has either zero or two children.
 
-2. `Complete Binary Tree:` A binary tree in which all levels are completely filled except possibly for the last level, which is filled from left to right.
+2. **Complete Binary Tree**: A binary tree in which all levels are completely filled except for possibly the last level, which is filled from left to right.
 
-3. `Perfect Binary Tree:` A binary tree in which all internal nodes have two children and all leaf nodes are at the same level.
+3. **Perfect Binary Tree**: A binary tree in which all internal nodes have exactly two children, and all leaf nodes are at the same level.
 
-4. `Balanced Binary Tree:` A binary tree in which the height of the left and right subtrees of any node differs by at most one.
+4. **Balanced Binary Tree**: A binary tree in which the heights of the left and right subtrees of any node differ by at most one. Examples include AVL trees, Red-Black trees, and B-trees.
 
-5. `Degenerate (or Pathological) Binary Tree:` A binary tree in which each parent node has only one associated child node.
+5. **Degenerate (or Pathological) Binary Tree**: A binary tree in which each parent node has only one associated child node, typically resulting in a structure similar to a linked list.
 
-6. `Binary Search Tree (BST):` A binary tree in which for each node, all elements in its left subtree are less than the node's value, and all elements in its right subtree are greater than the node's value.
+6. **Binary Search Tree (BST)**: A binary tree in which the value of each node is greater than all values in its left subtree and less than all values in its right subtree.
 
-7. `AVL Tree:` A self-balancing binary search tree in which the heights of the two child subtrees of any node differ by at most one.
+7. **AVL Tree**: A self-balancing binary search tree in which the heights of the left and right subtrees of every node differ by at most one, ensuring logarithmic time complexity for insertion, deletion, and search operations.
+
+8. **Red-Black Tree**: Another type of self-balancing binary search tree that maintains balance through colorings on the nodes and specific rules for balancing, offering guaranteed logarithmic time complexity for insertion, deletion, and search operations.
+
+9. **Heap**: A specialized binary tree data structure in which the value of each node is greater than or equal to (in a max heap) or less than or equal to (in a min heap) the values of its children.
+
+10. **Trie (Prefix Tree)**: A type of tree used for storing a dynamic set of strings where each node represents a common prefix of its descendants.
 
 These are some common classifications, but there are also other types of binary trees used in different scenarios and applications. Each classification has its own characteristics and properties that make it suitable for specific use cases.
 
@@ -80,7 +86,7 @@ These are some common classifications, but there are also other types of binary 
 ### Overview
 A binary search tree is a special type of binary tree in which the value of each node is greater than all values in its left subtree and less than all values in its right subtree. This property allows for efficient search, insertion, and deletion operations.
 
-### Key features
+### Key concepts and operations
 - `Search Operation:` Binary search trees support efficient search operations by recursively traversing the tree based on the comparison of values.
 - `Insertion:` When inserting a new node, the tree maintains the binary search tree property by finding the appropriate position based on the node's value.
 - `Deletion:` Deleting a node requires maintaining the binary search tree property while handling different cases such as nodes with zero, one, or two children.
@@ -155,7 +161,7 @@ A binary search tree is a special type of binary tree in which the value of each
 ### Overview
 AVL trees are **self-balancing** binary search trees in which the heights of the two child subtrees of any node differ by at most one. This balancing property ensures that the height of the tree remains logarithmic, leading to efficient search, insertion, and deletion operations.
 
-### Key features
+### Key concepts and operations
 - `Balancing Factor:` The difference in height between the left and right subtrees of a node is called the balancing factor. AVL trees use rotation operations to rebalance the tree when necessary to maintain the balancing factor.
 - `Rotation Operations:` AVL trees employ rotation operations such as left rotation, right rotation, left-right rotation, and right-left rotation to restore balance after insertion or deletion.
 - `Self-Balancing:` AVL trees automatically adjust their structure to ensure that the tree remains balanced, optimizing performance for search and other operations.
@@ -241,7 +247,7 @@ AVL trees are **self-balancing** binary search trees in which the heights of the
 ### Overview
 Heap trees are **complete binary trees** that satisfy the heap property. In a max heap, every parent node has a value greater than or equal to the values of its children. In a min heap, every parent node has a value less than or equal to the values of its children.
 
-### Key features
+### Key concepts and operations
 - `Heap Property:` The max heap property states that every parent node must have a value greater than or equal to the values of its children. The min heap property is the opposite, with every parent node having a value less than or equal to the values of its children.
 - `Insertion:` When inserting a new node into a heap, it is typically added at the bottom level and then "bubbled up" (or "percolated up") to its correct position to maintain the heap property.
 - `Extraction:` Extracting the root node of a heap (which is either the maximum or minimum value depending on the heap type) involves removing the root node and then restoring the heap property by "bubbling down" (or "percolating down") the new root value to its correct position.
