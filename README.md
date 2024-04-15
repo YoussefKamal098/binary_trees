@@ -10,8 +10,8 @@
 	- [Overview](#overview-1)
 	- [Key concepts and operations](#key-concepts-and-operations-1)
 	- [Time Complexity](#time-complexity)
-	- [Binary Search Tree (BST) Insertion Process -\> bst\_insert.c](#binary-search-tree-bst-insertion-process---bst_insertc)
-	- [Binary Search Tree (BST) Deletion Process -\> bst\_remove.c](#binary-search-tree-bst-deletion-process---bst_removec)
+	- [Binary Search Tree (BST) Insertion Process](#binary-search-tree-bst-insertion-process)
+	- [Binary Search Tree (BST) Deletion Process](#binary-search-tree-bst-deletion-process)
 	- [Applications](#applications)
 	- [Advantages](#advantages)
 	- [Disadvantages](#disadvantages)
@@ -19,8 +19,8 @@
 	- [Overview](#overview-2)
 	- [Key concepts and operations](#key-concepts-and-operations-2)
 	- [Time Complexity](#time-complexity-1)
-	- [AVL Tree Insertion Process -\> avl\_insert.c](#avl-tree-insertion-process---avl_insertc)
-	- [AVL Tree Deletion Process  -\> avl\_remove.c](#avl-tree-deletion-process----avl_removec)
+	- [AVL Tree Insertion Process](#avl-tree-insertion-process)
+	- [AVL Tree Deletion Process](#avl-tree-deletion-process)
 	- [Applications](#applications-1)
 	- [Advantages](#advantages-1)
 	- [Disadvantages](#disadvantages-1)
@@ -28,8 +28,8 @@
 	- [Overview](#overview-3)
 	- [Key concepts and operations](#key-concepts-and-operations-3)
 	- [Time Complexity](#time-complexity-2)
-	- [Heap Insertion Process (Max-Heap) -\> heap\_insert.c](#heap-insertion-process-max-heap---heap_insertc)
-	- [Heap Extraction Process (Max-Heap) -\> heap\_extract.c](#heap-extraction-process-max-heap---heap_extractc)
+	- [Heap Insertion Process (Max-Heap)](#heap-insertion-process-max-heap)
+	- [Heap Extraction Process (Max-Heap)](#heap-extraction-process-max-heap)
 	- [Applications](#applications-2)
 	- [Advantages](#advantages-2)
 	- [Disadvantages](#disadvantages-2)
@@ -106,7 +106,7 @@ A binary search tree is a special type of binary tree in which the value of each
   - `Deletion:` O(n) (when the tree is unbalanced and degenerates into a linked list)
   - `Traversal:` O(n)
 
-### Binary Search Tree (BST) Insertion Process -> [bst_insert.c](./111-bst_insert.c)
+### Binary Search Tree (BST) Insertion Process
 
   1. Start from the root node.
   2. Compare the value of the new node with the value of the current node.
@@ -117,9 +117,11 @@ A binary search tree is a special type of binary tree in which the value of each
   5. Repeat steps 2-4 until reaching a null pointer, indicating the position
      where the new node should be inserted.
   6. Insert the new node at the position found in step 5.
+   
+   **code** -> [bst_insert.c](./111-bst_insert.c)
  
  
-### Binary Search Tree (BST) Deletion Process -> [bst_remove.c](./114-bst_remove.c)
+### Binary Search Tree (BST) Deletion Process 
 
   1. Find the node to be deleted (target node).
   2. If the target node has no children (leaf node), simply remove it.
@@ -133,6 +135,8 @@ A binary search tree is a special type of binary tree in which the value of each
      c. Delete the in-order predecessor (or successor) node, which has become
         a duplicate.
  
+   **code** -> [bst_remove.c](./114-bst_remove.c)
+
   `Note:` The BST insertion and deletion operations maintain the BST property,
   ensuring that the elements are organized in a sorted order. These operations
   have average time complexities of O(log n), where n is the number of nodes
@@ -179,7 +183,7 @@ AVL trees are **self-balancing** binary search trees in which the heights of the
   - Same as average case because AVL trees are self-balancing, preventing worst-case scenarios like those in unbalanced binary search trees.
 
 
-### AVL Tree Insertion Process -> [avl_insert.c](./121-avl_insert.c)
+### AVL Tree Insertion Process
 
   1. Perform a standard BST insertion for the new node.
   2. Update the height of each node from the inserted node
@@ -202,9 +206,11 @@ AVL trees are **self-balancing** binary search trees in which the heights of the
        unbalanced node.
   5. Continue checking and balancing the tree recursively
      up to the root.
+
+  **code** -> [avl_insert.c](./121-avl_insert.c)
  
  
-### AVL Tree Deletion Process  -> [avl_remove.c](./123-avl_remove.c)
+### AVL Tree Deletion Process
 
   1. Perform a standard BST deletion for the node to be deleted.
   2. Update the height of each node from the deleted node's parent
@@ -218,6 +224,8 @@ AVL trees are **self-balancing** binary search trees in which the heights of the
      the AVL balance property, similar to the insertion process.
   5. Continue checking and balancing the tree recursively
      up to the root.
+
+  **code** -> [avl_remove.c](./123-avl_remove.c)
  
   `Note:` During both insertion and deletion, rotations may be
   necessary to maintain the AVL tree's balanced structure.
@@ -266,7 +274,7 @@ Heap trees are **complete binary trees** that satisfy the heap property. In a ma
   - `Searching:` O(n) (when searching for an arbitrary value in the worst case)
 
 
-### Heap Insertion Process (Max-Heap) -> [heap_insert.c](./131-heap_insert.c)
+### Heap Insertion Process (Max-Heap) 
 
   1. Perform a standard binary tree insertion by adding the new node
      as the leftmost available position at the last level of the heap.
@@ -275,8 +283,10 @@ Heap trees are **complete binary trees** that satisfy the heap property. In a ma
      swap the node with its parent.
   4. Repeat step 3 until the heap property is restored (i.e., the parent node
      has a greater value than its children or the new node is at the root).
+
+  **code** -> [heap_insert.c](./131-heap_insert.c)
  
-### Heap Extraction Process (Max-Heap) -> [heap_extract.c](./133-heap_extract.c)
+### Heap Extraction Process (Max-Heap)
 
   1. Swap the root node with the last node at the last level of the heap.
   2. Remove the last node (previously the root node) from the heap.
@@ -285,6 +295,8 @@ Heap trees are **complete binary trees** that satisfy the heap property. In a ma
      - Swap the root node with the child containing the maximum value.
      - Repeat the process until the max heap property is restored
        (i.e., the parent node has a greater value than its children).
+
+  **code** -> [heap_extract.c](./133-heap_extract.c)
  
   `Note:` Max heap insertion and extraction operations maintain the heap property,
   ensuring that the root node always contains the maximum value in the heap.
